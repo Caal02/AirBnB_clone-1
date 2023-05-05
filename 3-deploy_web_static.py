@@ -18,7 +18,7 @@ def do_pack():
         file_tgz = "versions/web_static_{}.tgz".format(created_at)
         local("tar -cvzf {} web_static".format(file_tgz))
         return file_tgz
-    except:
+    except Exception:
         return None
 
 
@@ -41,7 +41,7 @@ def do_deploy(archive_path):
         run("ln -s {}web_static_{}/ /data/web_static/current"
             .format(folder, id_final))
         return True
-    except:
+    except Exception:
         return False
 
 
